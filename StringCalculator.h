@@ -1,19 +1,36 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int add(const char* input1, const char* input2)
+int add(const char* input)
 {
-    int num1 = atoi(input1);
-    int num2 = atoi(input2);
-    return num1 + num2;
+    int sum =0;
+    char*split;
+    char input_copy[100];
+
+    strcpy(input_copy, input);
+
+    split = strtok(input_copy, ",");
+
+    while (split!=NUMM)
+        {
+            sum+=atoi(split);
+            split = strtok(NULL, ",");
+        }
+    return sum;
 }
 
 int main()
 {
-  const char* str1 = "1";
-  const char* str2 = "2";
-  int result = add(str1, str2);
+  char input[100];
+
+  fgets(input, sizeof(input), stdin);
+
+  input[strcspn(input, "\n"] = 0;
+    
+  int result = add(input);
   printf("result %d  \n", result);
+    return 0;
 }
 
