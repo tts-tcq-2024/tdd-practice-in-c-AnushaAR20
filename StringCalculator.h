@@ -13,7 +13,7 @@ int add(const char* input)
 
     split = strtok(input_copy, ",");
 
-    while (split!=NUMM)
+    while (split!=NULL)
         {
             sum+=atoi(split);
             split = strtok(NULL, ",");
@@ -27,7 +27,7 @@ int main()
 
   fgets(input, sizeof(input), stdin);
 
-  input[strcspn(input, "\n"] = 0;
+  input[strcspn(input, "\n")] = 0;
     
   int result = add(input);
   printf("result %d  \n", result);
