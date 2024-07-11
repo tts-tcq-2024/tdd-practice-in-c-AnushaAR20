@@ -30,7 +30,7 @@ int main()
   input[strcspn(input, "\n")] = 0;
     
   int result = add(input);
-  printf("result %d  \n", result);
-    return 0;
+  //printf("result %d  \n", result);
+  return 0;
 }
 
